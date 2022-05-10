@@ -5,6 +5,7 @@ buildscript {
 
     dependencies {
         classpath 'com.google.gms:google-services:4.3.10'
+        classpath 'org.jacoco:org.jacoco.core:0.8.6'
     }
 }
 plugins {
