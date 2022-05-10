@@ -1,0 +1,2 @@
+[![<JeffreyDChau>](https://circleci.com/gh/JeffreyDChau/My-Money-App.svg?style=svg)](https://app.circleci.com/pipelines/github/JeffreyDChau/My-Money-App)
+[![codecov](https://codecov.io/gh/JeffreyDChau/My-Money-App/branch/master/graph/badge.svg?token=UW709D9CV9)](https://codecov.io/gh/JeffreyDChau/My-Money-App)
