@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">My-Money-App</string>
     <string name="hello_world">Hello world!</string>
+    <string name="return_button">Return</string>
+    <string name="results_button">Results</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="input_button">input</string>
 </resources>
