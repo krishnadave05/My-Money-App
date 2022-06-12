@@ -4,6 +4,80 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Input">
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/nameField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Username"
+        android:textAlignment="viewEnd"
+        app:layout_constraintBottom_toTopOf="@id/nameField"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/hours_worked"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Hours Worked"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@id/hours_studied"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nameField"
+        />
+
+    <EditText
+        android:id="@+id/hours_studied"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:hint="Hours Studied"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        app:layout_constraintTop_toBottomOf="@id/hours_worked"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/Expenses" />
+
+    <EditText
+        android:id="@+id/Expenses"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:hint="Expenses"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        app:layout_constraintTop_toBottomOf="@id/hours_studied"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/rate_per_hour" />
+
+    <EditText
+        android:id="@+id/rate_per_hour"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:hint="Rate Per Hours"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        app:layout_constraintTop_toBottomOf="@id/Expenses"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/Add" />
+
+    <Button
+        android:id="@+id/Add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add +"
+        android:background="@color/white"
+        android:textColor="@color/design_default_color_background"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rate_per_hour" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
