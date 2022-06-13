@@ -1,11 +1,8 @@
 package com.example.my_money_app;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.room.Room;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -34,7 +31,7 @@ final String TAG ="Day is: ";
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
-        ExpenseViewModel expenseViewModel = new ViewModelProvider(this).get(ExpenseViewModel.class);
+        ValuesViewModel valuesViewModel = new ViewModelProvider(this).get(ValuesViewModel.class);
         //Calendar to track day
         Calendar calendar = Calendar.getInstance();
         int day = calendar.get(Calendar.DAY_OF_WEEK);
@@ -48,7 +45,7 @@ final String TAG ="Day is: ";
             worked = 0;
             studied = 0;
             expen = 0;
-            expenseViewModel.delete();
+            valuesViewModel.delete();
         }
 
         //instantiate textviews
@@ -86,19 +83,27 @@ final String TAG ="Day is: ";
         //expenses.append(String.valueOf(expen));
         total.append(String.valueOf(weekTotal));
 
-        Expense expenseObject = new Expense(String.valueOf(expen));
-        expenseViewModel.insert(expenseObject);
+        Values valuesObject = new Values();
+        valuesObject.setWorkHours(worked);
+        valuesObject.setStudyHours(studied);
+        valuesObject.setExpenses(expen);
+        valuesViewModel.insert(valuesObject);
 
-         Observer<List<Expense>> expenseObserver = expenseList -> {
-             double sum = 0;
-             for(int i = 0; i < expenseList.size(); i++){
-                 sum += Double.parseDouble(expenseList.get(i).getExpense());
+         Observer<List<Values>> valueObserver = valueList -> {
+             double sumWork = 0;
+             double sumStudy = 0;
+             double sumExpense = 0;
+             for(int i = 0; i < valueList.size(); i++){
+                 sumWork += valueList.get(i).getWorkHours();
+                 sumStudy += valueList.get(i).getStudyHours();
+                 sumExpense += valueList.get(i).getExpenses();
              }
-             String newExpense = (expenseList.get(expenseList.size() - 1).getExpense());
-             expenses.setText(String.valueOf(sum));
+             hoursWorked.setText(String.valueOf(sumWork));
+             hoursStudied.setText(String.valueOf(sumStudy));
+             expenses.setText(String.valueOf(sumExpense));
          };
 
-        expenseViewModel.getAllExpenses().observe(this, expenseObserver);
+        valuesViewModel.getAllExpenses().observe(this, valueObserver);
 
 
     }
