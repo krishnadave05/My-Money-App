@@ -23,16 +23,19 @@ public class LoginActivity extends AppCompatActivity {
         loginBtn = findViewById(R.id.login_button);
         email = findViewById(R.id.edit_email);
         password = findViewById(R.id.edit_password);
+        //toDO: remember to delete test email/password
+        email.setText("fdfdsfsd@gmail.com");
+        password.setText("fdsgfgfg");
         forgot_password = findViewById(R.id.forgot_password);
         loginBtn.setOnClickListener(v -> {
             if (validateData()) {
-                Intent i = new Intent(LoginActivity.this, Input.class);
+                Intent i = new Intent(LoginActivity.this, DashboardActivity.class);
                 i.putExtra("message", "Login Screen");
                 startActivity(i);
             }
         });
         forgot_password.setOnClickListener(v -> {
-            Intent i = new Intent(LoginActivity.this, Input.class);
+            Intent i = new Intent(LoginActivity.this, MainActivity.class);
             i.putExtra("message", "Forgot password Screen");
             startActivity(i);
         });
