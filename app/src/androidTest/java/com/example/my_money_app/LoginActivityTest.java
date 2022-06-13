@@ -16,7 +16,7 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule;
 
 import org.junit.Rule;
 import org.junit.Test;
-
+//ToDo: We need more tests for code coverage. Only at 16% right now.
 public class LoginActivityTest {
 
     @Rule
@@ -50,7 +50,5 @@ public class LoginActivityTest {
         onView(withId(R.id.edit_email)).perform(replaceText("abc123@gmail.com"));
         onView(withId(R.id.login_button)).perform(click());
         onView(withText("abc123456")).check(doesNotExist());
-
     }
-
 }

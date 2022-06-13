@@ -14,7 +14,7 @@ EditText hoursWorked;
 EditText hoursStudied;
 TextView moneyMade;
 EditText expenses;
-
+//ToDo: EditText boxes must only take numerical input.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +25,7 @@ EditText expenses;
         moneyMade = findViewById(R.id.MoneyMadeField);
         expenses = findViewById(R.id.ExpensesField);
         addBtn = findViewById(R.id.Add);
+
         //make onclick with bundle to send data to result activity
         addBtn.setOnClickListener(v -> {
             //intent to go to result activity

@@ -72,16 +72,7 @@ final String TAG ="Day is: ";
             addStudyHours(studiedInput);
             addExpenses(expenInput);
         }
-        //calculations
-        double made = workedHours(worked) + studyHours(studied);
-        double weekTotal = made - expen;
 
-        //display on textViews
-        hoursWorked.append(String.valueOf(worked));
-        hoursStudied.append(String.valueOf(studied));
-        moneyMade.append(String.valueOf(made));
-        //expenses.append(String.valueOf(expen));
-        total.append(String.valueOf(weekTotal));
 
         Values valuesObject = new Values();
         valuesObject.setWorkHours(worked);
@@ -98,25 +89,30 @@ final String TAG ="Day is: ";
                  sumStudy += valueList.get(i).getStudyHours();
                  sumExpense += valueList.get(i).getExpenses();
              }
-             hoursWorked.setText(String.valueOf(sumWork));
-             hoursStudied.setText(String.valueOf(sumStudy));
-             expenses.setText(String.valueOf(sumExpense));
+             hoursWorked.setText("Hours Worked: " + String.valueOf(sumWork));
+             hoursStudied.setText("Hours Studied: " +String.valueOf(sumStudy));
+             expenses.setText("Expenses: $" +String.valueOf(sumExpense));
+
+             //calculations
+             double made = workedHours(sumWork) + studyHours(sumStudy);
+             double weekTotal = made - sumExpense;
+
+             //display on textViews
+             moneyMade.setText("Money made: $" + String.valueOf(made));
+             total.setText("Weekly Total: $" +String.valueOf(weekTotal));
          };
 
         valuesViewModel.getAllExpenses().observe(this, valueObserver);
-
 
     }
 
     //temporary calculating method assuming 20$/hr
     public double workedHours(double hours){
-        hours = this.worked;
         double pay = hours * 20;
         return pay;
     }
     //temporary calculating method assuming 100$/hr
     public double studyHours(double hours){
-        hours = this.studied;
         double pay = hours * 100;
         return pay;
     }
