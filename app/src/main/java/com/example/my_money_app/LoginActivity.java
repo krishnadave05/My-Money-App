@@ -26,13 +26,13 @@ public class LoginActivity extends AppCompatActivity {
         forgot_password = findViewById(R.id.forgot_password);
         loginBtn.setOnClickListener(v -> {
             if (validateData()) {
-                Intent i = new Intent(LoginActivity.this, Input.class);
+                Intent i = new Intent(LoginActivity.this, DashboardActivity.class);
                 i.putExtra("message", "Login Screen");
                 startActivity(i);
             }
         });
         forgot_password.setOnClickListener(v -> {
-            Intent i = new Intent(LoginActivity.this, Input.class);
+            Intent i = new Intent(LoginActivity.this, DashboardActivity.class);
             i.putExtra("message", "Forgot password Screen");
             startActivity(i);
         });
