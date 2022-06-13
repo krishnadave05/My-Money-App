@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Input extends AppCompatActivity {
 Button addBtn;
@@ -14,6 +16,8 @@ EditText hoursWorked;
 EditText hoursStudied;
 TextView moneyMade;
 EditText expenses;
+Button resultButton;
+Button backButton;
 //ToDo: EditText boxes must only take numerical input.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +29,24 @@ EditText expenses;
         moneyMade = findViewById(R.id.MoneyMadeField);
         expenses = findViewById(R.id.ExpensesField);
         addBtn = findViewById(R.id.Add);
+        resultButton = findViewById(R.id.results_button);
+        backButton = findViewById(R.id.return_button);
+
+
+        resultButton.setOnClickListener(v -> {
+            Intent i = new Intent(Input.this, ResultActivity.class);
+            startActivity(i);
+        });
+
+        backButton.setOnClickListener(v -> {
+            Intent i = new Intent(Input.this, DashboardActivity.class);
+            startActivity(i);
+        });
 
         //make onclick with bundle to send data to result activity
         addBtn.setOnClickListener(v -> {
             //intent to go to result activity
-            Intent i = new Intent(Input.this, ResultActivity.class);
+            Intent i = new Intent(Input.this, DashboardActivity.class);
 
             //create bundle
             Bundle bundle = new Bundle();
@@ -48,4 +65,20 @@ EditText expenses;
             startActivity(i);
         });
     }
+
+
+
+public void onSubmit(View view){
+    String worked = hoursWorked.getText().toString();
+    String studied = hoursStudied.getText().toString();
+    String expen = expenses.getText().toString();
+
+    if ( hoursWorked.equals("")|| hoursStudied.equals("") || expenses.equals("") ) {
+        // empty strings are not valid form input show a Toast to the user
+        Toast.makeText(getApplicationContext(),"complete all the necessary field", Toast.LENGTH_LONG).show();
+        return;
+    }
+}
+
+
 }
