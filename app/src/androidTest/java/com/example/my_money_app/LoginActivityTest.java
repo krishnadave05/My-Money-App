@@ -32,13 +32,25 @@ public class LoginActivityTest {
 
     @Test
     public void isEmail() {
+        onView(withId(R.id.edit_email)).perform(replaceText("abc123@gmail"));
+        onView(withId(R.id.edit_password)).perform(replaceText("abc123456"));
+        onView(withId(R.id.login_button)).perform(click());
+        onView(withText("abc123@gmail.com")).check(doesNotExist());
     }
 
     @Test
-    public void isEmpty() {
+    public void emailIsEmpty() {
+        onView(withId(R.id.edit_password)).perform(replaceText("abc123456"));
+        onView(withId(R.id.login_button)).perform(click());
+        onView(withText("abc123@gmail.com")).check(doesNotExist());
     }
 
     @Test
-    public void validateData() {
+    public void passwordIsEmpty() {
+        onView(withId(R.id.edit_email)).perform(replaceText("abc123@gmail.com"));
+        onView(withId(R.id.login_button)).perform(click());
+        onView(withText("abc123456")).check(doesNotExist());
+
     }
+
 }
