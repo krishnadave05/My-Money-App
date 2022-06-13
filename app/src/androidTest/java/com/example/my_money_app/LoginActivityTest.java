@@ -50,5 +50,7 @@ public class LoginActivityTest {
         onView(withId(R.id.edit_email)).perform(replaceText("abc123@gmail.com"));
         onView(withId(R.id.login_button)).perform(click());
         onView(withText("abc123456")).check(doesNotExist());
+
     }
+
 }

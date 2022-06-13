@@ -23,6 +23,9 @@ public class LoginActivity extends AppCompatActivity {
         loginBtn = findViewById(R.id.login_button);
         email = findViewById(R.id.edit_email);
         password = findViewById(R.id.edit_password);
+        //toDO: remember to delete test email/password
+        email.setText("fdfdsfsd@gmail.com");
+        password.setText("fdsgfgfg");
         forgot_password = findViewById(R.id.forgot_password);
         loginBtn.setOnClickListener(v -> {
             if (validateData()) {
