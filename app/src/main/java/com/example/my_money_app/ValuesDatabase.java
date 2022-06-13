@@ -9,22 +9,22 @@ import androidx.room.RoomDatabase;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {Expense.class}, version = 1, exportSchema = false)
-public abstract class ExpenseDatabase extends RoomDatabase {
+@Database(entities = {Values.class}, version = 1, exportSchema = false)
+public abstract class ValuesDatabase extends RoomDatabase {
 
-    public abstract ExpenseDao expenseDao();
+    public abstract ValuesDao valuesDao();
 
-    private static volatile ExpenseDatabase INSTANCE;
+    private static volatile ValuesDatabase INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;
     static final ExecutorService databaseWriteExecutor =
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
-    static ExpenseDatabase getDatabase(final Context context) {
+    static ValuesDatabase getDatabase(final Context context) {
         if (INSTANCE == null) {
-            synchronized (ExpenseDatabase.class) {
+            synchronized (ValuesDatabase.class) {
                 if(INSTANCE == null) {
-                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(), ExpenseDatabase.class,
-                            "expense_database").build();
+                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(), ValuesDatabase.class,
+                            "values_database").build();
                 }
             }
         }
