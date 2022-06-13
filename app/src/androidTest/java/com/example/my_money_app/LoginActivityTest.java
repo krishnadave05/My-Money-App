@@ -1,5 +1,7 @@
 package com.example.my_money_app;
 
+import static org.junit.Assert.*;
+
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.replaceText;
@@ -10,19 +12,33 @@ import static androidx.test.espresso.matcher.ViewMatchers.withClassName;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
-import android.widget.DatePicker;
-
-import androidx.test.espresso.contrib.PickerActions;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
-import androidx.test.ext.junit.runners.AndroidJUnit4;
 
-import org.hamcrest.Matchers;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
-public class MainActivityTest {
+public class LoginActivityTest {
+
     @Rule
-    public ActivityScenarioRule mainActivityRule = new ActivityScenarioRule<>(MainActivity.class);
+    public ActivityScenarioRule loginActivityRule = new ActivityScenarioRule<>(LoginActivity.class);
 
+    @Test
+    public void loginTest(){
+        onView(withId(R.id.edit_email)).perform(replaceText("abc123@gmail.com"));
+        onView(withId(R.id.edit_password)).perform(replaceText("abc123456"));
+        onView(withId(R.id.login_button)).perform(click());
+        onView(withId(R.id.dashboard)).check(matches(withText("Dashboard")));
+    }
+
+    @Test
+    public void isEmail() {
+    }
+
+    @Test
+    public void isEmpty() {
+    }
+
+    @Test
+    public void validateData() {
+    }
 }
