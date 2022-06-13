@@ -25,8 +25,4 @@ public class MainActivityTest {
     @Rule
     public ActivityScenarioRule mainActivityRule = new ActivityScenarioRule<>(MainActivity.class);
 
-    @Test
-    public void displayText(){
-        onView(withId(R.id.Hello_world)).check(matches(withText("Hello world!")));
-    }
 }

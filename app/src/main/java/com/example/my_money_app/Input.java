@@ -9,25 +9,24 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class Input extends AppCompatActivity {
-    Button addButton;
-    EditText hoursWorked;
-    EditText hoursStudied;
-    EditText expenses;
-    EditText ratePerHOurs;
+Button addBtn;
+EditText hoursWorked;
+EditText hoursStudied;
+TextView moneyMade;
+EditText expenses;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input);
-
-
-        hoursWorked = findViewById(R.id.hours_worked);
-        hoursStudied = findViewById(R.id.hours_studied);
-        expenses = findViewById(R.id.Expenses);
-        ratePerHOurs= findViewById(R.id.rate_per_hour);
-        addButton = findViewById(R.id.Add);
+        //instantiate elements
+        hoursWorked = findViewById(R.id.hours_worked_input);
+        hoursStudied = findViewById(R.id.hours_studied_input);
+        moneyMade = findViewById(R.id.MoneyMadeField);
+        expenses = findViewById(R.id.ExpensesField);
+        addBtn = findViewById(R.id.Add);
         //make onclick with bundle to send data to result activity
-        addButton.setOnClickListener(v -> {
+        addBtn.setOnClickListener(v -> {
             //intent to go to result activity
             Intent i = new Intent(Input.this, ResultActivity.class);
 
@@ -37,13 +36,11 @@ public class Input extends AppCompatActivity {
             //convert input to strings
             String worked = hoursWorked.getText().toString();
             String studied = hoursStudied.getText().toString();
-            String rate = ratePerHOurs.getText().toString();
             String expen = expenses.getText().toString();
 
             //put data in bundle
             bundle.putString("work",worked);
             bundle.putString("study",studied);
-            bundle.putString("rate",rate);
             bundle.putString("expense",expen);
 
             i.putExtras(bundle);
@@ -51,6 +48,3 @@ public class Input extends AppCompatActivity {
         });
     }
 }
-
-
-
