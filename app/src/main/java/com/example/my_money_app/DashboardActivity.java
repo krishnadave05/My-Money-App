@@ -34,7 +34,7 @@ public class DashboardActivity extends AppCompatActivity implements CalenderAdap
         returnBtn = findViewById(R.id.return_button);
         //onClick for button
         resultsBtn.setOnClickListener(v -> {
-            Intent i = new Intent(DashboardActivity.this, Input.class);
+            Intent i = new Intent(DashboardActivity.this, ResultActivity.class);
             startActivity(i);
         });
         returnBtn.setOnClickListener(v -> {

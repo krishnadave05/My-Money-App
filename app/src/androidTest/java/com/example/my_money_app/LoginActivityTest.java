@@ -27,7 +27,7 @@ public class LoginActivityTest {
         onView(withId(R.id.edit_email)).perform(replaceText("abc123@gmail.com"));
         onView(withId(R.id.edit_password)).perform(replaceText("abc123456"));
         onView(withId(R.id.login_button)).perform(click());
-        onView(withId(R.id.dashboard)).check(matches(withText("Dashboard")));
+        onView(withId(R.id.selectDateText)).check(matches(withText("Select a date")));
     }
 
     @Test
@@ -50,5 +50,33 @@ public class LoginActivityTest {
         onView(withId(R.id.edit_email)).perform(replaceText("abc123@gmail.com"));
         onView(withId(R.id.login_button)).perform(click());
         onView(withText("abc123456")).check(doesNotExist());
+    }
+
+    @Test
+    public void resultsButtonWorks(){
+        onView(withId(R.id.edit_email)).perform(replaceText("abc123@gmail.com"));
+        onView(withId(R.id.edit_password)).perform(replaceText("abc123456"));
+        onView(withId(R.id.login_button)).perform(click());
+        onView(withId(R.id.results_button)).perform(click());
+        onView(withId(R.id.to_dashboard)).check(matches(withText("To Dashboard")));
+    }
+
+    @Test
+    public void dashboardButtonWorks(){
+        onView(withId(R.id.edit_email)).perform(replaceText("abc123@gmail.com"));
+        onView(withId(R.id.edit_password)).perform(replaceText("abc123456"));
+        onView(withId(R.id.login_button)).perform(click());
+        onView(withId(R.id.results_button)).perform(click());
+        onView(withId(R.id.to_dashboard)).perform(click());
+        onView(withId(R.id.selectDateText)).check(matches(withText("Select a date")));
+    }
+
+    @Test
+    public void calendarWorks(){
+        onView(withId(R.id.edit_email)).perform(replaceText("abc123@gmail.com"));
+        onView(withId(R.id.edit_password)).perform(replaceText("abc123456"));
+        onView(withId(R.id.login_button)).perform(click());
+
+
     }
 }
