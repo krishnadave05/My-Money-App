@@ -15,8 +15,13 @@
     <string name="my_money">MY MONEY</string>
     <string name="backMonth"><![CDATA[<-]]></string>
     <string name="forwardMonth"><![CDATA[->]]></string>
+
+    <string name="to_dashboard">To Dashboard</string>
+
+
     <string name="hours_studied">hours_studied</string>
     <string name="expenses">expenses</string>
     <string name="add">add</string>
     <string name="back">back</string>
+
 </resources>

@@ -98,10 +98,14 @@ public class DashboardActivity extends AppCompatActivity implements CalenderAdap
     @Override
     public void onItemClick(int position, String dayText) {
             String message = "Selected Date " + dayText + " " + monthYearFromDate(selectedDate);
+            String transferMessage = dayText + " " + monthYearFromDate(selectedDate);
             Toast.makeText(this, message, Toast.LENGTH_LONG).show();
-            /* //Transfer date to input
+             //Transfer date to input
+            Bundle bundle = new Bundle();
+            bundle.putString("date", transferMessage);
             Intent i = new Intent(DashboardActivity.this, Input.class);
+            i.putExtras(bundle);
             startActivity(i);
-            */
+
     }
 }
