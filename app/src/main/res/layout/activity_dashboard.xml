@@ -21,8 +21,7 @@
             android:textColor="@color/black"
             android:background="@color/black"
             android:textStyle="bold"
-            android:textSize="15sp"
-            android:onClick="previousMonthAction"/>
+            android:textSize="15sp" />
         <TextView
             android:id="@+id/selectDateText"
             android:layout_width="0dp"
@@ -41,8 +40,7 @@
             android:textColor="@color/black"
             android:background="@color/black"
             android:textStyle="bold"
-            android:textSize="15sp"
-            android:onClick="nextMonthAction"/>
+            android:textSize="15sp" />
     </LinearLayout>
 
     <LinearLayout
