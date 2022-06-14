@@ -23,5 +23,13 @@
     <string name="expenses">expenses</string>
     <string name="add">add</string>
     <string name="back">back</string>
+    <string name="Sunday">SUN</string>
+    <string name="Monday">MON</string>
+    <string name="Tuesday">TUES</string>
+    <string name="Wednesday">WED</string>
+    <string name="Thursday">THURS</string>
+    <string name="Friday">FRI</string>
+    <string name="Saturday">SAT</string>
+    <string name="MonthYearPlaceholder">Month Year</string>
 
 </resources>
