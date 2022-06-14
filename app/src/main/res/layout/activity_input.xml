@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@android:color/holo_green_light"
     tools:context=".MainActivity">
 
     <TextView
@@ -11,7 +14,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Username"
-        android:textAlignment="center"
+        android:gravity="center_horizontal|center_vertical"
+        android:layout_gravity="center"
+        android:padding = "@dimen/ten_dp"
+        android:background="@android:color/white"
+        android:layout_marginTop="@dimen/ten_dp"
         app:layout_constraintBottom_toTopOf="@id/nameField"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -20,12 +27,16 @@
     <EditText
     android:id="@+id/hours_worked_input"
         android:layout_width="match_parent"
-        android:layout_height="88dp"
+        android:layout_height="wrap_content"
         android:gravity="center_horizontal|center_vertical"
         android:layout_gravity="center"
+        android:background="@android:color/white"
         android:hint="Hours Worked"
-        android:textSize="22sp"
-        android:inputType="number"
+
+        android:layout_marginTop="@dimen/twenty_dp"
+        android:textSize="@dimen/twenty_two_sp"
+        android:textColor="#CD5C5C"
+
         app:layout_constraintBottom_toTopOf="@id/hours_studied_input"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -36,11 +47,13 @@
         android:id="@+id/hours_studied_input"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:hint="Hours Studied"
+        android:hint="@string/hours_studied"
         android:layout_gravity="center"
-        android:textSize="22sp"
-        android:padding="24dp"
-        android:inputType="number"
+
+        android:textSize="@dimen/twenty_two_sp"
+        android:padding="@dimen/ten_dp"
+        android:layout_marginTop="@dimen/twenty_dp"
+        android:background="@android:color/white"
         app:layout_constraintTop_toBottomOf="@id/hours_worked_input"
         app:layout_constraintBottom_toTopOf="@id/ExpensesField"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -52,7 +65,9 @@
         android:id="@+id/ExpensesField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Expenses"
+        android:hint="@string/expenses"
+        android:background="@android:color/white"
+        android:layout_marginTop="@dimen/twenty_dp"
         android:gravity="center_horizontal|center_vertical"
         android:inputType="numberDecimal"
         app:layout_constraintTop_toBottomOf="@id/hours_studied_input"
@@ -64,7 +79,7 @@
         android:id="@+id/Add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add +"
+        android:text="@string/add"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ExpensesField" />
@@ -73,17 +88,17 @@
         android:id="@+id/return_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:text="BACK"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginStart="@dimen/four_dp"
+        android:text="@string/back"
+        app:layout_constraintBottom_toBottomOf="@id/Add"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <Button
         android:id="@+id/results_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/results_button"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/Add"
         app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,7 +14,6 @@ public class Input extends AppCompatActivity {
 Button addBtn;
 EditText hoursWorked;
 EditText hoursStudied;
-TextView moneyMade;
 EditText expenses;
 Button resultButton;
 Button backButton;
