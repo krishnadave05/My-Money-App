@@ -26,12 +26,14 @@ Button backButton;
         //instantiate elements
         hoursWorked = findViewById(R.id.hours_worked_input);
         hoursStudied = findViewById(R.id.hours_studied_input);
-       // moneyMade = findViewById(R.id.MoneyMadeField);
         expenses = findViewById(R.id.ExpensesField);
         addBtn = findViewById(R.id.Add);
         resultButton = findViewById(R.id.results_button);
         backButton = findViewById(R.id.return_button);
 
+        //receive date bundle from dashboard
+        Bundle getDate = getIntent().getExtras();
+        String date = getDate.getString("date");
 
         resultButton.setOnClickListener(v -> {
             Intent i = new Intent(Input.this, ResultActivity.class);
@@ -46,8 +48,8 @@ Button backButton;
         //make onclick with bundle to send data to result activity
         addBtn.setOnClickListener(v -> {
             //intent to go to result activity
-            Intent i = new Intent(Input.this, DashboardActivity.class);
-
+            Intent i = new Intent(Input.this, ResultActivity.class);
+            Intent x = new Intent(Input.this, DashboardActivity.class);
             //create bundle
             Bundle bundle = new Bundle();
 
@@ -60,7 +62,7 @@ Button backButton;
             bundle.putString("work",worked);
             bundle.putString("study",studied);
             bundle.putString("expense",expen);
-
+            bundle.putString("date",date);
             i.putExtras(bundle);
             startActivity(i);
         });

@@ -20,6 +20,9 @@ public class Values {
     @ColumnInfo(name = "expenses")
     private double expenses;
 
+    @ColumnInfo(name = "date")
+    private String date;
+
     @NonNull
     public int getId(){
         return id;
@@ -52,4 +55,8 @@ public class Values {
     public double getExpenses(){
         return expenses;
     }
+
+    public void setDate(String date) {this.date = date;}
+
+    public String getDate() {return date;}
 }

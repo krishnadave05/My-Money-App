@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
@@ -21,8 +23,10 @@ TextView hoursStudied;
 TextView moneyMade;
 TextView expenses;
 TextView total;
+Button toDashboardBtn;
 double studied;
 double worked;
+String date;
 static double expen;
 final String TAG ="Day is: ";
 
@@ -31,7 +35,9 @@ final String TAG ="Day is: ";
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
+
         ValuesViewModel valuesViewModel = new ViewModelProvider(this).get(ValuesViewModel.class);
+
         //Calendar to track day
         Calendar calendar = Calendar.getInstance();
         int day = calendar.get(Calendar.DAY_OF_WEEK);
@@ -61,7 +67,10 @@ final String TAG ="Day is: ";
             String stringWorked = bundle.getString("work");
             String stringStudied = bundle.getString("study");
             String stringExpense = bundle.getString("expense");
+            String stringDate = bundle.getString("date");
 
+            //put date into class variable
+            this.date = stringDate;
             //imported double values from input
             double workedInput = Double.parseDouble(stringWorked);
             double studiedInput = Double.parseDouble(stringStudied);
@@ -78,32 +87,45 @@ final String TAG ="Day is: ";
         valuesObject.setWorkHours(worked);
         valuesObject.setStudyHours(studied);
         valuesObject.setExpenses(expen);
+        valuesObject.setDate(date);
         valuesViewModel.insert(valuesObject);
 
          Observer<List<Values>> valueObserver = valueList -> {
              double sumWork = 0;
              double sumStudy = 0;
              double sumExpense = 0;
+
              for(int i = 0; i < valueList.size(); i++){
-                 sumWork += valueList.get(i).getWorkHours();
-                 sumStudy += valueList.get(i).getStudyHours();
-                 sumExpense += valueList.get(i).getExpenses();
+
+                     sumWork += valueList.get(i).getWorkHours();
+                     sumStudy += valueList.get(i).getStudyHours();
+                     sumExpense += valueList.get(i).getExpenses();
              }
              hoursWorked.setText("Hours Worked: " + String.valueOf(sumWork));
              hoursStudied.setText("Hours Studied: " +String.valueOf(sumStudy));
-             expenses.setText("Expenses: $" +String.valueOf(sumExpense));
+             expenses.setText("Expenses: " + format(sumExpense));
 
              //calculations
              double made = workedHours(sumWork) + studyHours(sumStudy);
              double weekTotal = made - sumExpense;
 
              //display on textViews
-             moneyMade.setText("Money made: $" + String.valueOf(made));
-             total.setText("Weekly Total: $" +String.valueOf(weekTotal));
+             moneyMade.setText("Money made: " + format(made));
+             total.setText("Weekly Total: " + format(weekTotal));
          };
-
         valuesViewModel.getAllExpenses().observe(this, valueObserver);
 
+        //to dashboard button
+        toDashboardBtn=findViewById(R.id.to_dashboard);
+
+        toDashboardBtn.setOnClickListener(v -> {
+            Intent i = new Intent(ResultActivity.this, DashboardActivity.class);
+            startActivity(i);
+        });
+
+        //change title for week
+        title = findViewById(R.id.results_title);
+        title.setText("Todays results " + this.date );
     }
 
     //temporary calculating method assuming 20$/hr
@@ -130,8 +152,9 @@ final String TAG ="Day is: ";
     }
 
     //Currency Format to Dollars
-    public void format(double input){
+    public String format(double input){
         NumberFormat defaultFormat = NumberFormat.getCurrencyInstance();
-        defaultFormat.format(input);
+        String moneyString = defaultFormat.format(input);
+        return moneyString;
     }
 }
