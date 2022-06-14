@@ -15,7 +15,7 @@ Button addBtn;
 EditText hoursWorked;
 EditText hoursStudied;
 EditText expenses;
-String date;
+String dateString;
 Button resultButton;
 Button backButton;
 //ToDo: EditText boxes must only take numerical input.
@@ -31,11 +31,6 @@ Button backButton;
         resultButton = findViewById(R.id.results_button);
         backButton = findViewById(R.id.return_button);
 
-        //receive date bundle from dashboard
-        Bundle getDate = getIntent().getExtras();
-        if(getDate.equals(null)){
-        this.date = "null";}
-        else{date = getDate.getString("date");}
 
 
         resultButton.setOnClickListener(v -> {
@@ -61,11 +56,16 @@ Button backButton;
             String studied = hoursStudied.getText().toString();
             String expen = expenses.getText().toString();
 
+            Bundle getDate = getIntent().getExtras();
+            if(getDate.equals(null)){
+                this.dateString = "null";}
+            else{dateString = getDate.getString("date_key");}
+
             //put data in bundle
             bundle.putString("work",worked);
             bundle.putString("study",studied);
             bundle.putString("expense",expen);
-            bundle.putString("date",date);
+            bundle.putString("date",dateString);
             i.putExtras(bundle);
             startActivity(i);
         });
