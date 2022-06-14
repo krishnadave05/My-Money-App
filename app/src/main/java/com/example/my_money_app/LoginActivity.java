@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
         forgot_password.setOnClickListener(v -> {
-            Intent i = new Intent(LoginActivity.this, MainActivity.class);
+            Intent i = new Intent(LoginActivity.this, DashboardActivity.class);
             i.putExtra("message", "Forgot password Screen");
             startActivity(i);
         });
