@@ -11,74 +11,72 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="@dimen/twenty_dp">
         <Button
             android:id="@+id/return_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="return"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:background="@color/black"
             android:textStyle="bold"
-            android:textSize="15sp"
-            android:onClick="previousMonthAction"/>
+            android:textSize="@dimen/one_fivedp" />
         <TextView
             android:id="@+id/selectDateText"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/zerodp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:text="Select a date"
-            android:textSize="20sp"
+            android:textSize="@dimen/twenty_two_sp"
             android:textAlignment="center"
             android:textColor="@color/black"/>
         <Button
             android:id="@+id/results_button"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/zerodp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="results"
-            android:textColor="@color/black"
+            android:text="@string/results_button"
+            android:textColor="@color/white"
             android:background="@color/black"
             android:textStyle="bold"
-            android:textSize="15sp"
-            android:onClick="nextMonthAction"/>
+            android:textSize="@dimen/one_fivedp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp">
+        android:layout_marginBottom="@dimen/twenty_dp"
+        android:layout_marginTop="@dimen/twenty_dp">
         <Button
-            android:layout_width="0dp"
+            android:layout_width="@dimen/zerodp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/backMonth"
             android:textColor="@color/black"
             android:background="@android:color/transparent"
             android:textStyle="bold"
-            android:textSize="20sp"
+            android:textSize="@dimen/twenty_dp"
             android:onClick="previousMonthAction"/>
         <TextView
             android:id="@+id/monthYearTV"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/zerodp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:text="Month Year"
-            android:textSize="20sp"
+            android:text="@string/MonthYearPlaceholder"
+            android:textSize="@dimen/twenty_two_sp"
             android:textAlignment="center"
             android:textColor="@color/black"/>
         <Button
-            android:layout_width="0dp"
+            android:layout_width="@dimen/zerodp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/forwardMonth"
             android:textColor="@color/black"
             android:background="@android:color/transparent"
             android:textStyle="bold"
-            android:textSize="20sp"
+            android:textSize="@dimen/twenty_two_sp"
             android:onClick="nextMonthAction"/>
     </LinearLayout>
 
@@ -88,53 +86,61 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="@dimen/zerodp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="SUN"
+            android:text="@string/Sunday"
             android:textColor="@color/black"
             android:textAlignment="center"
-            android:textSize="16sp"/>
+            android:textSize="@dimen/sixteen_sp"/>
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="@dimen/zerodp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="MON"
+            android:text="@string/Monday"
             android:textColor="@color/black"
             android:textAlignment="center"
-            android:textSize="16sp"/>
+            android:textSize="@dimen/sixteen_sp"/>
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="@dimen/zerodp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TUES"
+            android:text="@string/Tuesday"
             android:textColor="@color/black"
             android:textAlignment="center"
-            android:textSize="16sp"/>
+            android:textSize="@dimen/sixteen_sp"/>
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="@dimen/zerodp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="THUR"
+            android:text="@string/Wednesday"
             android:textColor="@color/black"
             android:textAlignment="center"
-            android:textSize="16sp"/>
+            android:textSize="@dimen/sixteen_sp"/>
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="@dimen/zerodp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="FRI"
+            android:text="@string/Thursday"
             android:textColor="@color/black"
             android:textAlignment="center"
-            android:textSize="16sp"/>
+            android:textSize="@dimen/sixteen_sp"/>
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="@dimen/zerodp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="SAT"
+            android:text="@string/Friday"
             android:textColor="@color/black"
             android:textAlignment="center"
-            android:textSize="16sp"/>
+            android:textSize="@dimen/sixteen_sp"/>
+        <TextView
+            android:layout_width="@dimen/zerodp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/Saturday"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:textSize="@dimen/sixteen_sp"/>
 
     </LinearLayout>
 

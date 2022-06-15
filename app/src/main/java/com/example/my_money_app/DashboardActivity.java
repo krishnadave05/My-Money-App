@@ -102,7 +102,7 @@ public class DashboardActivity extends AppCompatActivity implements CalenderAdap
             Toast.makeText(this, message, Toast.LENGTH_LONG).show();
              //Transfer date to input
             Bundle bundle = new Bundle();
-            bundle.putString("date", transferMessage);
+            bundle.putString("date_key", transferMessage);
             Intent i = new Intent(DashboardActivity.this, Input.class);
             i.putExtras(bundle);
             startActivity(i);
