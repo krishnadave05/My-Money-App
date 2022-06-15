@@ -12,6 +12,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withClassName;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
+import androidx.test.espresso.contrib.RecyclerViewActions;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 
 import org.junit.Rule;
@@ -71,12 +72,13 @@ public class LoginActivityTest {
         onView(withId(R.id.selectDateText)).check(matches(withText("Select a date")));
     }
 
-    @Test
-    public void calendarWorks(){
-        onView(withId(R.id.edit_email)).perform(replaceText("abc123@gmail.com"));
-        onView(withId(R.id.edit_password)).perform(replaceText("abc123456"));
-        onView(withId(R.id.login_button)).perform(click());
+//    @Test
+//    public void calendarWorks(){
+//        onView(withId(R.id.edit_email)).perform(replaceText("abc123@gmail.com"));
+//        onView(withId(R.id.edit_password)).perform(replaceText("abc123456"));
+//        onView(withId(R.id.login_button)).perform(click());
+//        onView(withId(R.id.calenderRecyclerView)).perform(RecyclerViewActions.actionOnItemAtPosition(10, MyViewAction.clickChildViewWithId(R.id.cellDayText)));
+//
+//    }
 
-
-    }
 }
