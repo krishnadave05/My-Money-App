@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/results_title"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Week of: "
+        android:layout_gravity="center"
+        android:textSize="22sp"
+
+        android:padding="24dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+    </TextView>
+
+    <TextView
+        android:id="@+id/hours_worked"
+        android:layout_width="wrap_content"
+        android:layout_height="88dp"
+        android:layout_gravity="center"
+        android:padding="24dp"
+        android:text="Hours Worked: "
+
+        android:textSize="22sp"
+
+        app:layout_constraintBottom_toTopOf="@id/hours_studied"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/results_title">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/hours_studied"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Hours Studied: "
+        android:layout_gravity="center"
+        android:textSize="22sp"
+
+        android:padding="24dp"
+
+        app:layout_constraintTop_toBottomOf="@id/hours_worked"
+        app:layout_constraintBottom_toTopOf="@id/money_made"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/money_made"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Money Made: "
+        android:layout_gravity="center"
+        android:textSize="22sp"
+
+        android:padding="24dp"
+
+        app:layout_constraintTop_toBottomOf="@id/hours_studied"
+        app:layout_constraintBottom_toTopOf="@id/expenses"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/expenses"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Expenses: "
+        android:layout_gravity="center"
+        android:textSize="22sp"
+
+        android:padding="24dp"
+
+        app:layout_constraintTop_toBottomOf="@id/money_made"
+        app:layout_constraintBottom_toTopOf="@id/this_week_total"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/this_week_total"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="This week: "
+        android:layout_gravity="center"
+        android:textSize="22sp"
+
+        android:padding="24dp"
+
+        app:layout_constraintTop_toBottomOf="@id/expenses"
+        app:layout_constraintBottom_toTopOf="@id/to_dashboard"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+    </TextView>
+
+    <Button
+        android:id="@+id/to_dashboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="70dp"
+        android:background="@drawable/round_button"
+        android:text="@string/to_dashboard"
+        app:layout_constraintTop_toBottomOf="@id/this_week_total"></Button>
+</LinearLayout>
