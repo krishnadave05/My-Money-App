@@ -32,4 +32,12 @@
     <string name="Saturday">SAT</string>
     <string name="MonthYearPlaceholder">Month Year</string>
 
+    <string name="MyMoneyApp">genderDropdown</string>
+    <string-array name="gender">
+        <item>male</item>
+        <item>female</item>
+        <item>prefer not to say</item>
+    </string-array>
+
+
 </resources>

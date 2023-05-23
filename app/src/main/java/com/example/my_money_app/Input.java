@@ -33,9 +33,27 @@ Button backButton;
 
 
 
-        resultButton.setOnClickListener(v -> {
-            Intent i = new Intent(Input.this, ResultActivity.class);
-            startActivity(i);
+//        resultButton.setOnClickListener(v -> {
+//            onSubmit();
+//            Intent i = new Intent(Input.this, ResultActivity.class);
+//            i.putExtra("hoursWorked",hoursWorked.getText().toString());
+//            i.putExtra("hoursStudied",hoursStudied.getText().toString());
+//            startActivity(i);
+//        });
+
+        resultButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(hoursWorked.getText().toString().isEmpty()==false && hoursStudied.getText().toString().isEmpty()==false){
+                    Intent i = new Intent(Input.this, ResultActivity.class);
+                    i.putExtra("hoursWorked",hoursWorked.getText().toString());
+                    i.putExtra("hoursStudied",hoursStudied.getText().toString());
+                    startActivity(i);
+                }else{
+                    Toast.makeText(Input.this, "Enter data in fields", Toast.LENGTH_SHORT).show();
+                }
+
+            }
         });
 
         backButton.setOnClickListener(v -> {
@@ -73,7 +91,7 @@ Button backButton;
 
 
 
-public void onSubmit(View view){
+public boolean onSubmit(){
     String worked = hoursWorked.getText().toString();
     String studied = hoursStudied.getText().toString();
     String expen = expenses.getText().toString();
@@ -81,8 +99,9 @@ public void onSubmit(View view){
     if ( hoursWorked.equals("")|| hoursStudied.equals("") || expenses.equals("") ) {
         // empty strings are not valid form input show a Toast to the user
         Toast.makeText(getApplicationContext(),"complete all the necessary field", Toast.LENGTH_LONG).show();
-        return;
+        return false;
     }
+    return true;
 }
 
 
